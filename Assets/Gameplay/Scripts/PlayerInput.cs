@@ -35,7 +35,7 @@ public class PlayerInput : MonoBehaviour
     {
         if (Input.GetKeyDown(pauseKey) && PauseManager.instance.isPause == false)
         {
-            PauseManager.instance.PauseGame();
+            PauseManager.instance.GoToPause();
         }
 
         else

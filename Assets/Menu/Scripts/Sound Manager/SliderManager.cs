@@ -30,18 +30,6 @@ public class SliderManager : MonoBehaviour
         PlayerPrefs.SetFloat("SfxVolume", sfx);
     }
 
-    //public void MusicText()
-    //{
-    //    music = 100 * music;
-    //    Musicperc.text = Mathf.RoundToInt(music) + "%";
-    //}
-    //
-    //public void SFXText()
-    //{
-    //    sfx = 100 * sfx;
-    //    SFXperc.text = Mathf.RoundToInt(sfx) + "%";
-    //}
-
 
     private void Awake()
     {
