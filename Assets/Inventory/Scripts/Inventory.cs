@@ -8,16 +8,19 @@ public class Inventory : MonoBehaviour
 
     [SerializeField] public GameObject[] items = new GameObject[6];
     [SerializeField] KeyCode InventoryKey;
+    [SerializeField] KeyCode PickUpKey;
     [SerializeField] public bool isInventoryOpen = false;
     [SerializeField] public GameObject inventoryPopup;
     [SerializeField] public Text itemDesc;
     private string desc;
-    private int index = 0;
+    public int index = 0;
+    public bool controll = false;
     // Quando raccolco qualcosa
     void PickUp(GameObject pick)
     {
         items[index] = pick;
         index++;
+        controll=true;
     }
 
     //controllo per aprire l'inventario
@@ -38,15 +41,15 @@ public class Inventory : MonoBehaviour
     }
 
     //controllo per il pickup
-    void OnTriggerEnter(Collider other)
+    void OnTriggerStay(Collider other)
     {
-        if(other.tag == "pickup")
+        if (Input.GetKey(PickUpKey) && other.tag=="pickup")
         {
             PickUp(other.gameObject);
+            other.gameObject.SetActive(false);
         }
-
-        other.gameObject.SetActive(false);   
     }
+
 
     public void Descrizione(int index)
     {
