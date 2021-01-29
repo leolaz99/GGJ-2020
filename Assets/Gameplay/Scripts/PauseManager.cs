@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseManager : MonoBehaviour
 {
@@ -16,6 +17,11 @@ public class PauseManager : MonoBehaviour
         pauseScreen.SetActive(true);
         Time.timeScale = 0;
         isPause = true;
+    }
+
+    public void GoToMenu()
+    {
+        SceneManager.LoadScene("Menu");
     }
 
     public void GoToInventory()
@@ -46,6 +52,29 @@ public class PauseManager : MonoBehaviour
         isPause = false;
     }
 
+    public void Get1Pick()
+    {
+    }
+
+    public void Get2Pick()
+    {
+    }
+
+    public void Get3Pick()
+    {
+    }
+
+    public void Get4Pick()
+    {
+    }
+
+    public void Get5Pick()
+    {
+    }
+
+    public void Get6Pick()
+    {    
+    }
     void Awake()
     {
         if (instance == null)

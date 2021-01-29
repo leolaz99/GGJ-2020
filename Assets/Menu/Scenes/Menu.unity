@@ -1936,9 +1936,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - name: MainMenuMusic
-    clip: {fileID: 8300000, guid: ac64b5f0567d64f4aa7b90d77ad89859, type: 3}
+    clip: {fileID: 0}
     volume: 1
     loop: 0
+    source: {fileID: 0}
+  - name: Waterfall
+    clip: {fileID: 8300000, guid: 4a496f84abfdec2458c3265332ebdad8, type: 3}
+    volume: 1
+    loop: 1
     source: {fileID: 0}
 --- !u!4 &836323305
 Transform:

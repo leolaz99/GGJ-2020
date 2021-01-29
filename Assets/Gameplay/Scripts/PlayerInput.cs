@@ -11,7 +11,10 @@ public class PlayerInput : MonoBehaviour
 
     [Header("PAUSE KEY")]
     [SerializeField] KeyCode pauseKey;
-    
+
+    [Header("PICKUP KEY")]
+    public KeyCode PickUpKey;
+
     Rigidbody rb;
 
 
