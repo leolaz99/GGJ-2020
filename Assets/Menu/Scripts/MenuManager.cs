@@ -18,6 +18,7 @@ public class MenuManager : MonoBehaviour
     {
         startingScreen.SetActive(true);
         settings.SetActive(false);
+        credits.SetActive(false);
     }
 
     public void GoToAudioSettings()
