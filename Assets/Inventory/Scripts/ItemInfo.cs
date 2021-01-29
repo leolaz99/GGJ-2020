@@ -3,17 +3,19 @@ using UnityEngine.UI;
 
 public class ItemInfo : MonoBehaviour
 {
+    [TextArea]
     public string description;
-    public Text itemName;
-    public Image ItemImage;
+    public string Name;
+    public Image image;
 
-    public void PutDesc()
-    {
-        itemName.text = description;
-    }
-
-    public string getDesc()
-    {
-        return description;
-    }
+    //public void PutDesc()
+    //{
+    //    itemDesc.text = description;
+    //
+    //}
+    //
+    //public string getDesc()
+    //{
+    //    return description;
+    //}
 }

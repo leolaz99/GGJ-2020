@@ -16,7 +16,27 @@ public class PlayerInput : MonoBehaviour
     public KeyCode PickUpKey;
 
     Rigidbody rb;
+    Inventory inventory;
 
+    void OnTriggerStay(Collider other)
+    {
+        if (Input.GetKey(PickUpKey) && other.tag == "pickup")
+        {
+            inventory.PickUp(other.gameObject);
+            other.gameObject.SetActive(false);
+            UIManager.instance.HidePopUp();
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        UIManager.instance.ShowPopUp();
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        UIManager.instance.HidePopUp();
+    }
 
     void Movement()
     {
@@ -32,6 +52,7 @@ public class PlayerInput : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        inventory = GetComponent<Inventory>();
     }
 
     void Update()
