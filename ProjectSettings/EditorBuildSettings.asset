@@ -11,10 +11,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Gameplay/Scenes/Gameplay.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
-    path: Assets/Inventory/Scenes/InventoryPopup.unity
-    guid: 3b446dc64240876438158f6313649d38
-  - enabled: 1
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
     path: Assets/Inventory/Scenes/Inventory.unity
     guid: 0b67ef7c662d22d48a372c5979e8d403
+  - enabled: 1
+    path: Assets/Menu/Scenes/Intro.unity
+    guid: a47f51d8b33a798499bf3b49b8481ac5
   m_configObjects: {}
