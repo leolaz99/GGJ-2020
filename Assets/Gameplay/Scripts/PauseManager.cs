@@ -26,6 +26,7 @@ public class PauseManager : MonoBehaviour
     public void GoToMenu()
     {
         SceneManager.LoadScene("Menu");
+        Time.timeScale = 1;
     }
 
     public void GoToInventory()
@@ -68,30 +69,10 @@ public class PauseManager : MonoBehaviour
                 GameObject.Find("ItemText (" + i + ")").GetComponent<Text>().text = inventory.itemInfos[i].Name;
                 GameObject.Find("ItemImage (" + i + ")").GetComponent<Image>().sprite = inventory.itemInfos[i].image;
             }
-        }
-        
-        
+        }     
     }
 
-    public void Get2Pick()
-    {
-    }
-
-    public void Get3Pick()
-    {
-    }
-
-    public void Get4Pick()
-    {
-    }
-
-    public void Get5Pick()
-    {
-    }
-
-    public void Get6Pick()
-    {    
-    }
+  
     void Awake()
     {
         if (instance == null)

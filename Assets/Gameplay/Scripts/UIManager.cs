@@ -1,9 +1,12 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
     [SerializeField] GameObject popUp;
+    [SerializeField] Text score;
     public static UIManager instance;
+    Inventory inventory;
 
     public void ShowPopUp()
     {
@@ -15,9 +18,21 @@ public class UIManager : MonoBehaviour
         popUp.SetActive(false);
     }
 
+    public void ShowScore()
+    {
+        score.text = "MEMORIES\n" + inventory.index + "/6";
+    }
+
     void Awake()
     {
         if (instance == null)
             instance = this;
+
+        inventory = FindObjectOfType<Inventory>();
+    }
+
+    void Update()
+    {
+        ShowScore();
     }
 }

@@ -8,14 +8,7 @@ public class ItemInfo : MonoBehaviour
     public string Name;
     public Sprite image;
 
-    //public void PutDesc()
-    //{
-    //    itemDesc.text = description;
-    //
-    //}
-    //
-    //public string getDesc()
-    //{
-    //    return description;
-    //}
+    [TextArea]
+    public string dialogueText;
+
 }
