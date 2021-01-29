@@ -3145,7 +3145,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 804102325}
-  m_LocalRotation: {x: 0.45371178, y: 0.31118408, z: -0.17281842, w: 0.81697243}
+  m_LocalRotation: {x: 0.45371175, y: 0.3111841, z: -0.17281845, w: 0.81697243}
   m_LocalPosition: {x: -9.49, y: 23.91, z: -10.65}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3758,7 +3758,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.45371178, y: 0.31118408, z: -0.17281842, w: 0.81697243}
+  m_LocalRotation: {x: 0.45371175, y: 0.3111841, z: -0.17281845, w: 0.81697243}
   m_LocalPosition: {x: -9.49, y: 23.91, z: -10.65}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -4498,6 +4498,7 @@ MonoBehaviour:
   angVel: 100
   pauseKey: 27
   PickUpKey: 101
+  dialoguePanel: {fileID: 1190816287}
 --- !u!114 &1095956802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4707,7 +4708,7 @@ GameObject:
   - component: {fileID: 1144438008}
   - component: {fileID: 1144438007}
   m_Layer: 5
-  m_Name: Text
+  m_Name: DialogueText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5098,8 +5099,9 @@ GameObject:
   - component: {fileID: 1190816288}
   - component: {fileID: 1190816290}
   - component: {fileID: 1190816289}
+  - component: {fileID: 1190816291}
   m_Layer: 5
-  m_Name: Dialogue Panel
+  m_Name: DialoguePanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5163,6 +5165,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1190816287}
   m_CullTransparentMesh: 0
+--- !u!114 &1190816291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1190816287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7973767f5474b146a697727896ea0d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  inventory: {fileID: 0}
+  dialogue: 
+  dialogeText: {fileID: 1144438007}
+  continueKey: 101
 --- !u!1 &1221609436
 GameObject:
   m_ObjectHideFlags: 0

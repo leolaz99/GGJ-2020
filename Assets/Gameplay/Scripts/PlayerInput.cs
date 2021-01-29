@@ -18,7 +18,7 @@ public class PlayerInput : MonoBehaviour
 
     Rigidbody rb;
     Inventory inventory;
-
+    public GameObject dialoguePanel;
     void OnTriggerStay(Collider other)
     {
         if (Input.GetKey(PickUpKey) && other.tag == "pickup")
@@ -26,8 +26,12 @@ public class PlayerInput : MonoBehaviour
             inventory.PickUp(other.gameObject);
             other.gameObject.SetActive(false);
             UIManager.instance.HidePopUp();
+            dialoguePanel.SetActive(true);        
+            dialoguePanel.GetComponent<DialogueController>().StartDialogue(other.gameObject);         
         }
     }
+
+    
 
     private void OnTriggerEnter(Collider other)
     {
