@@ -19,6 +19,8 @@ public class PlayerInput : MonoBehaviour
     Rigidbody rb;
     Inventory inventory;
     public GameObject dialoguePanel;
+    Animator animator;
+
     void OnTriggerStay(Collider other)
     {
         if (Input.GetKey(PickUpKey) && other.tag == "pickup")
@@ -47,7 +49,7 @@ public class PlayerInput : MonoBehaviour
     {
         float forward = Input.GetAxis("Vertical");
         float horizontal = Input.GetAxis("Horizontal");
-
+        animator.SetFloat("Vertical", forward);
         Vector3 currentvelocity = transform.forward * speed * forward;
         rb.velocity = currentvelocity * Time.deltaTime;
         transform.Rotate(Vector3.up, angVel * horizontal * Time.deltaTime);
@@ -58,6 +60,7 @@ public class PlayerInput : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         inventory = GetComponent<Inventory>();
+        animator = GetComponentInChildren<Animator>();
     }
 
     void Update()
