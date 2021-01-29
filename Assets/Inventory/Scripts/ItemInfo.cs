@@ -6,7 +6,7 @@ public class ItemInfo : MonoBehaviour
     [TextArea]
     public string description;
     public string Name;
-    public Image image;
+    public Sprite image;
 
     //public void PutDesc()
     //{

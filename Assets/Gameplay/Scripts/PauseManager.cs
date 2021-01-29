@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class PauseManager : MonoBehaviour
@@ -7,6 +8,8 @@ public class PauseManager : MonoBehaviour
     [SerializeField] GameObject AudioScreen;
     [SerializeField] GameObject controlsScreen;
     [SerializeField] GameObject pauseScreen;
+    [SerializeField] GameObject player;
+    [SerializeField] Inventory inventory;
 
     [HideInInspector] public bool isPause = false;
     
@@ -17,6 +20,7 @@ public class PauseManager : MonoBehaviour
         pauseScreen.SetActive(true);
         Time.timeScale = 0;
         isPause = true;
+        GetPick();
     }
 
     public void GoToMenu()
@@ -28,7 +32,8 @@ public class PauseManager : MonoBehaviour
     {
         inventoryScreen.SetActive(true);
         AudioScreen.SetActive(false);
-        controlsScreen.SetActive(false);       
+        controlsScreen.SetActive(false);
+        GetPick();
     }
 
     public void GoToAudioSettings()
@@ -52,8 +57,20 @@ public class PauseManager : MonoBehaviour
         isPause = false;
     }
 
-    public void Get1Pick()
+    public void GetPick()
     {
+        player = GameObject.Find("Player");
+        inventory = player.GetComponent<Inventory>();
+        for (int i = 0; i < inventory.itemInfos.Length; i++)
+        {
+            if (inventory.itemInfos[i] != null)
+            {
+                GameObject.Find("ItemText (" + i + ")").GetComponent<Text>().text = inventory.itemInfos[i].Name;
+                GameObject.Find("ItemImage (" + i + ")").GetComponent<Image>().sprite = inventory.itemInfos[i].image;
+            }
+        }
+        
+        
     }
 
     public void Get2Pick()
