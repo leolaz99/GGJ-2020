@@ -47,12 +47,22 @@ public class PlayerInput : MonoBehaviour
 
     void Movement()
     {
-        float forward = Input.GetAxis("Vertical");
-        float horizontal = Input.GetAxis("Horizontal");
-        animator.SetFloat("Vertical", forward);
-        Vector3 currentvelocity = transform.forward * speed * forward;
-        rb.velocity = currentvelocity * Time.deltaTime;
-        transform.Rotate(Vector3.up, angVel * horizontal * Time.deltaTime);
+        if (dialoguePanel.activeInHierarchy == false)
+        {
+            float forward = Input.GetAxis("Vertical");
+            float horizontal = Input.GetAxis("Horizontal");
+            animator.SetFloat("Vertical", forward);
+            Vector3 currentvelocity = transform.forward * speed * forward;
+            rb.velocity = currentvelocity * Time.deltaTime;
+            transform.Rotate(Vector3.up, angVel * horizontal * Time.deltaTime);
+        }
+        else
+        {
+            Vector3 currentvelocity = transform.forward * speed * 0;
+            rb.velocity = currentvelocity * Time.deltaTime;
+            animator.SetFloat("Vertical", 0);
+        }
+        
     }
     
     

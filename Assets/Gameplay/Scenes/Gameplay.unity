@@ -3125,7 +3125,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 804102325}
-  m_LocalRotation: {x: 0.45371178, y: 0.31118408, z: -0.17281842, w: 0.81697243}
+  m_LocalRotation: {x: 0.45371175, y: 0.3111841, z: -0.17281845, w: 0.81697243}
   m_LocalPosition: {x: -9.49, y: 22.91, z: -10.65}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3737,7 +3737,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.45371178, y: 0.31118408, z: -0.17281842, w: 0.81697243}
+  m_LocalRotation: {x: 0.45371175, y: 0.3111841, z: -0.17281845, w: 0.81697243}
   m_LocalPosition: {x: -9.49, y: 22.91, z: -10.65}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -5085,7 +5085,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1190816288
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5160,6 +5160,7 @@ MonoBehaviour:
   inventory: {fileID: 0}
   dialogue: 
   dialogeText: {fileID: 1144438007}
+  isDialogueActive: 0
   continueKey: 101
 --- !u!1 &1221609436
 GameObject:
