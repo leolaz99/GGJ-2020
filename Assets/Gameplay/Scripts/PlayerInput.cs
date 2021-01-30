@@ -23,13 +23,20 @@ public class PlayerInput : MonoBehaviour
 
     void OnTriggerStay(Collider other)
     {
-        if (Input.GetKey(PickUpKey) && other.tag == "pickup")
+        if (Input.GetKeyDown(PickUpKey) && other.tag == "pickup")
         {
             inventory.PickUp(other.gameObject);
             other.gameObject.SetActive(false);
             UIManager.instance.HidePopUp();
             dialoguePanel.SetActive(true);        
             dialoguePanel.GetComponent<DialogueController>().StartDialogue(other.gameObject);         
+        }
+
+        if (Input.GetKeyDown(PickUpKey) && other.tag == "sign" && dialoguePanel.activeInHierarchy == false)
+        {
+            UIManager.instance.HidePopUp();
+            dialoguePanel.SetActive(true);
+            dialoguePanel.GetComponent<DialogueController>().StartReading(other.gameObject);
         }
     }
 

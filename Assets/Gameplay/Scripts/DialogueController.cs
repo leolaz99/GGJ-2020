@@ -7,24 +7,28 @@ public class DialogueController : MonoBehaviour
 {
     [SerializeField] private GameObject player;
     [SerializeField] private Inventory inventory;
-    [SerializeField] private string dialogue;
+    [SerializeField] private string[] dialogue;
     [SerializeField] public Text dialogeText;
     public bool isDialogueActive;
+    private int index;
     [SerializeField] KeyCode continueKey;
     // Start is called before the first frame update
     public void StartDialogue(GameObject other)
     {
-        /*
-        Debug.Log("a");
-        player = GameObject.Find("Player");
-        inventory = player.GetComponent<Inventory>();
-        dialogue = inventory.itemInfos[inventory.index].dialogueText;
-        
-        */
+        index = 0;
         gameObject.SetActive(true);
         dialogue = other.GetComponent<ItemInfo>().dialogueText;
-        dialogeText.text = dialogue;
         isDialogueActive = false;
+        dialogeText.text = dialogue[0];
+    }
+
+    public void StartReading(GameObject other)
+    {
+        index = 0;
+        gameObject.SetActive(true);
+        dialogue = other.GetComponent<SignInfo>().dialogueText;
+        isDialogueActive = false;
+        dialogeText.text = dialogue[0];
     }
 
     // Update is called once per frame
@@ -32,7 +36,11 @@ public class DialogueController : MonoBehaviour
     {
         if (Input.GetKeyDown(continueKey) && isDialogueActive == true)
         {
-            gameObject.SetActive(false);
+            index++;
+
+            if (index >= dialogue.Length) gameObject.SetActive(false);
+            else dialogeText.text = dialogue[index];
+
         } else
         {
             isDialogueActive = true;

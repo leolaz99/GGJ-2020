@@ -9,6 +9,6 @@ public class ItemInfo : MonoBehaviour
     public Sprite image;
 
     [TextArea]
-    public string dialogueText;
+    public string[] dialogueText;
 
 }
