@@ -9,7 +9,7 @@ public class DialogueController : MonoBehaviour
     [SerializeField] private Inventory inventory;
     [SerializeField] private string dialogue;
     [SerializeField] public Text dialogeText;
-
+    private bool dontAsk;
     [SerializeField] KeyCode continueKey;
     // Start is called before the first frame update
     public void StartDialogue(GameObject other)
@@ -21,18 +21,21 @@ public class DialogueController : MonoBehaviour
         dialogue = inventory.itemInfos[inventory.index].dialogueText;
         
         */
+        gameObject.SetActive(true);
         dialogue = other.GetComponent<ItemInfo>().dialogueText;
         dialogeText.text = dialogue;
-        
+        dontAsk = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(continueKey))
+        if (Input.GetKeyDown(continueKey) && dontAsk == true)
         {
-            
             gameObject.SetActive(false);
+        } else
+        {
+            dontAsk = true;
         }
     }
 }
