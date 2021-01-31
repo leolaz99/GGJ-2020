@@ -40,8 +40,6 @@ public class PlayerInput : MonoBehaviour
         }
     }
 
-    
-
     private void OnTriggerEnter(Collider other)
     {
         UIManager.instance.ShowPopUp();
@@ -59,8 +57,7 @@ public class PlayerInput : MonoBehaviour
             float forward = Input.GetAxis("Vertical");
             float horizontal = Input.GetAxis("Horizontal");
             animator.SetFloat("Vertical", forward);
-            Vector3 currentvelocity = transform.forward * speed * forward;
-            rb.velocity = currentvelocity * Time.deltaTime;
+            transform.Translate(Vector3.forward * speed * forward * Time.deltaTime);
             transform.Rotate(Vector3.up, angVel * horizontal * Time.deltaTime);
         }
         else
@@ -92,10 +89,7 @@ public class PlayerInput : MonoBehaviour
         {
             PauseManager.instance.ResumeGame();
         }
-    }
-
-    void FixedUpdate()
-    {
+        
         Movement();
     }
 }
