@@ -10,17 +10,23 @@ public class DialogueController : MonoBehaviour
     [SerializeField] private string[] dialogue;
     [SerializeField] public Text dialogeText;
     public bool isDialogueActive;
+    private bool dontAsk = true;
     private int index;
+    public int itemCollected = 0;
+
+    public GameObject HomeDoor, HomeSign;
     [SerializeField] KeyCode continueKey;
     // Start is called before the first frame update
     public void StartDialogue(GameObject other)
     {
+        itemCollected++;
         index = 0;
         gameObject.SetActive(true);
         dialogue = other.GetComponent<ItemInfo>().dialogueText;
         isDialogueActive = false;
         dialogeText.text = dialogue[0];
     }
+
 
     public void StartReading(GameObject other)
     {
@@ -37,8 +43,27 @@ public class DialogueController : MonoBehaviour
         if (Input.GetKeyDown(continueKey) && isDialogueActive == true)
         {
             index++;
-
-            if (index >= dialogue.Length) gameObject.SetActive(false);
+            if (index >= dialogue.Length) 
+            {
+                if(itemCollected == 6)
+                {
+                    HomeDoor.SetActive(true);
+                    HomeSign.SetActive(true);
+                    if(dontAsk == true)
+                    {
+                        dontAsk = false;
+                        dialogeText.text = "Tt's getting late... I should go back to my house";
+                    }
+                    else
+                    {
+                        gameObject.SetActive(false);
+                    }
+                } 
+                else
+                {
+                    gameObject.SetActive(false);
+                }
+            } 
             else dialogeText.text = dialogue[index];
 
         } else

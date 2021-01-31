@@ -7,5 +7,4 @@ public class SignInfo : MonoBehaviour
 {
     [TextArea]
     public string[] dialogueText;
-
 }
