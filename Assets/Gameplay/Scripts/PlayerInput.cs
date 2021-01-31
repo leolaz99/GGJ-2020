@@ -90,6 +90,11 @@ public class PlayerInput : MonoBehaviour
             PauseManager.instance.ResumeGame();
         }
         
+        
+    }
+
+    void FixedUpdate()
+    {
         Movement();
     }
 }
