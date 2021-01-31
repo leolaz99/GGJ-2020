@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class DialogueController : MonoBehaviour
 {
@@ -13,12 +14,14 @@ public class DialogueController : MonoBehaviour
     private bool dontAsk = true;
     private int index;
     public int itemCollected = 0;
+    private GameObject obj;
 
     public GameObject HomeDoor, HomeSign;
     [SerializeField] KeyCode continueKey;
     // Start is called before the first frame update
     public void StartDialogue(GameObject other)
     {
+        obj = other;
         itemCollected++;
         index = 0;
         gameObject.SetActive(true);
@@ -30,6 +33,7 @@ public class DialogueController : MonoBehaviour
 
     public void StartReading(GameObject other)
     {
+        obj = other;
         index = 0;
         gameObject.SetActive(true);
         dialogue = other.GetComponent<SignInfo>().dialogueText;
@@ -45,7 +49,15 @@ public class DialogueController : MonoBehaviour
             index++;
             if (index >= dialogue.Length) 
             {
-                if(itemCollected == 6)
+                if (obj.tag == "sign")
+                {
+                    if (obj.GetComponent<SignInfo>().isCasa)
+                    {
+                        SceneManager.LoadScene("Menu");
+                    }
+                }
+
+                if (itemCollected == 6)
                 {
                     HomeDoor.SetActive(true);
                     HomeSign.SetActive(true);

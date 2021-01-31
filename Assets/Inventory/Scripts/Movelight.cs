@@ -99,7 +99,7 @@ public class Movelight : MonoBehaviour
                     transform.localEulerAngles = newangle;
                 }
                 
-                if (newangle.x >= 180.0f)
+                if (newangle.x >= 170.0f)
                 {
                     Finder.control = false;
                 }
